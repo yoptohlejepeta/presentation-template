@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.2) (preloaded format=xelatex 2024.1.15)  15 JAN 2024 22:53
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.2) (preloaded format=xelatex 2024.1.15)  15 JAN 2024 23:04
 entering extended mode
 **"c:/Users/aaron/OneDrive - Northwestern University/Documents/GitHub/wildcat/s
 ource/wildcat-example.tex"
@@ -1311,12 +1311,6 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] [5
 
-] [6
-
-] [7
-
-] [8
-
 ]
 \tf@nav=\write6
 \openout6 = `wildcat-example.nav'.
@@ -1335,12 +1329,12 @@ Package rerunfilecheck Info: File `wildcat-example.out' has not changed.
 (rerunfilecheck)             Checksum: B9478B2BB7A12628AB669DB6E4B0584C;121.
  ) 
 Here is how much of TeX's memory you used:
- 25886 strings out of 411732
- 532431 string characters out of 2836994
- 880147 words of memory out of 3000000
- 45309 multiletter control sequences out of 15000+200000
+ 25884 strings out of 411732
+ 532387 string characters out of 2836994
+ 876570 words of memory out of 3000000
+ 45307 multiletter control sequences out of 15000+200000
  411616 words of font info for 98 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
  131i,14n,132p,539b,892s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on wildcat-example.pdf (8 pages).
+Output written on wildcat-example.pdf (5 pages).
