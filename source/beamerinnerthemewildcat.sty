@@ -1,0 +1,81 @@
+\mode<presentation>
+
+\setbeamertemplate{background}{
+    \begin{tikzpicture}
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \ifnum\thepage=1\relax%
+    % Add background (nupurple)
+    \draw[color=nupurple,color=nupurple,line width=0.1pt] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    % Add facet polygons
+    \draw[color=nupurple,fill=nupurple, line width=0.05pt] (0,0) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- cycle;
+    \draw[color=nupurple110,fill=nupurple110,, line width=0.05pt] (0,\the\paperheight) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,\the\paperheight) -- cycle;
+    \draw[color=nupurple120,fill=nupurple120, line width=0.05pt] (6.4,\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- (7.7,0) -- (13.2,0.82*\the\paperheight) -- (12.8,\the\paperheight) -- cycle;
+    \draw[color=nupurple130,fill=nupurple130, line width=0.05pt] (7.7,0) -- (13.2,0.82*\the\paperheight) -- (11.6,0) -- cycle;
+    \draw[color=nupurple110,fill=nupurple110, line width=0.05pt] (11.6,0) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,0.18*\the\paperheight) -- (12,0) -- cycle;
+    \draw[color=nupurple,fill=nupurple, line width=0.05pt] (12,0) -- (\the\paperwidth,0.18*\the\paperheight) -- (\the\paperwidth,0) -- cycle;
+    \draw[color=nupurple,fill=nupurple,  line width=0.05pt] (12.8,\the\paperheight) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,\the\paperheight) -- cycle;
+    % Add the logo
+    \node[anchor=west,inner sep=0] at (0.05*\the\paperwidth,0.89*\the\paperheight) {\includegraphics[scale=0.25]{Northwestern_white.pdf}};
+    \fi
+    % Blank bg for every other page
+    \ifnum\thepage>1\relax%
+    \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \fi
+  \end{tikzpicture}
+}
+
+% Title page
+\defbeamertemplate*{title page}{wildcat}[1][]
+{ 
+% Clear the footline template
+\setbeamertemplate{footline}{}
+\setbeamertemplate{navigation symbols}{}    
+\vfill
+\vskip4cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=0cm,sep=8pt,#1]{title page header}
+        \raggedright\usebeamerfont{title}\inserttitle\par%
+    \end{beamercolorbox}%
+    \vskip0.75cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=0cm,#1]{author}
+        \raggedright\usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+     \vskip0.2cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=0cm,#1]{date}
+        \raggedright\usebeamerfont{author}\insertdate%
+    \end{beamercolorbox}
+\vfill
+}
+
+% Section page
+% Automatically generate a new frame for each section
+\AtBeginSection[]{
+    {\setbeamertemplate{background}{
+        \begin{tikzpicture}
+            \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+            % Add background (nupurple)
+            \draw[color=nupurple,color=nupurple,line width=0.1pt] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+            % Add facet polygons
+            \draw[color=nupurple10!30,fill=nupurple10!30, line width=0.05pt] (0,0) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- cycle;
+            \draw[color=nupurple20!30,fill=nupurple20!30, line width=0.05pt] (0,\the\paperheight) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,\the\paperheight) -- cycle;
+            \draw[color=nupurple30!30,fill=nupurple30!30, line width=0.05pt] (6.4,\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- (7.7,0) -- (13.2,0.82*\the\paperheight) -- (12.8,\the\paperheight) -- cycle;
+            \draw[color=nupurple40!30,fill=nupurple40!30, line width=0.05pt] (7.7,0) -- (13.2,0.82*\the\paperheight) -- (11.6,0) -- cycle;
+            \draw[color=nupurple20!30,fill=nupurple20!30, line width=0.05pt] (11.6,0) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,0.18*\the\paperheight) -- (12,0) -- cycle;
+            \draw[color=nupurple10!30,fill=nupurple10!30, line width=0.05pt] (12,0) -- (\the\paperwidth,0.18*\the\paperheight) -- (\the\paperwidth,0) -- cycle;
+            \draw[color=nupurple10!30,fill=nupurple10!30,  line width=0.05pt] (12.8,\the\paperheight) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,\the\paperheight) -- cycle;
+        \end{tikzpicture}
+    }
+    \setbeamertemplate{footline}{}
+    \begin{frame}
+        \vfill
+        \vskip4cm%
+        \begin{beamercolorbox}[sep=8pt,left,shadow=false,rounded=false]{title}
+            {\color{nupurple}\raggedright\usebeamerfont{section}\insertsectionhead\par}%
+        \end{beamercolorbox}
+    \end{frame}
+    }
+}
+
+
+
+\mode
+<all>
