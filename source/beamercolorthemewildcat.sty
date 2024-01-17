@@ -5,8 +5,39 @@
 \setbeamercolor*{author}{fg=white}
 \setbeamercolor*{date}{fg=white}
 
-% Northwestern Colors
-\definecolor{nupurple}{RGB}{078, 042, 132}
+% Create colors that will be used for the inner/outer themes. By default,
+% use the nu colors below, but you can specify these colors in your own
+% document if you want to change them. wcprimary is the main color. 
+% These colors are actually used in the inner/outer/color themes.
+\definecolor{wcprimary}{RGB}{078, 042, 132} % nupurple (and its variations below)
+\definecolor{wcprimary140}{RGB}{048, 016, 078}
+\definecolor{wcprimary130}{RGB}{056, 023, 090}
+\definecolor{wcprimary120}{RGB}{064, 031, 104}
+\definecolor{wcprimary110}{RGB}{072, 036, 118}
+\definecolor{wcprimary40}{RGB}{164, 149, 195}
+\definecolor{wcprimary30}{RGB}{182, 172, 209}
+\definecolor{wcprimary20}{RGB}{204, 196, 223}
+\definecolor{wcprimary10}{RGB}{228, 224, 238}
+
+% Likewise, you can specify the color of alert and example text/boxes
+\definecolor{wcalerted}{RGB}{202, 124, 027} % nudarkorange
+\definecolor{wcexample}{RGB}{000, 134, 086} % nudarkgreen
+
+% The ones below aren't actually used in the inner/outer/color themes.
+% You can still redefine if you wish, but nothing will change
+\definecolor{wcprimary160}{RGB}{029, 002, 053}
+\definecolor{wcprimary150}{RGB}{038, 008, 065}
+\definecolor{wcprimary90}{RGB}{91, 59, 140}
+\definecolor{wcprimary80}{RGB}{104, 076, 150}
+\definecolor{wcprimary70}{RGB}{118, 093, 160}
+\definecolor{wcprimary60}{RGB}{131, 110, 170}
+\definecolor{wcprimary50}{RGB}{147, 128, 182}
+
+
+
+% Northwestern Colors - Not referenced in the .sty files, but useful if using default color scheme
+% For reference, see: http://www.northwestern.edu/brand/visual-identity/color/index.html
+\definecolor{nupurple}{RGB}{078, 042, 132} % Default wcprimary color
 \definecolor{nupurple90}{RGB}{91, 59, 140}
 \definecolor{nupurple80}{RGB}{104, 076, 150}
 \definecolor{nupurple70}{RGB}{118, 093, 160}
@@ -29,35 +60,40 @@
 \definecolor{nubrightyellow}{RGB}{237, 233, 59}
 \definecolor{nubrightorange}{RGB}{255, 197, 32}
 \definecolor{nubrightred}{RGB}{239, 085, 063}
-\definecolor{nudarkgreen}{RGB}{000, 134, 086}
+\definecolor{nudarkgreen}{RGB}{000, 134, 086} % Default wcexample color
 \definecolor{nudarkteal}{RGB}{000, 127, 164}
 \definecolor{nudarkblue}{RGB}{013, 045, 108}
 \definecolor{nudarkyellow}{RGB}{217, 200, 038}
-\definecolor{nudarkorange}{RGB}{202, 124, 027}
+\definecolor{nudarkorange}{RGB}{202, 124, 027} % Default wcalerted color
 \definecolor{nudarkred}{RGB}{216, 088, 032}
 
-% Change alerted text color to nudarkorange
-\setbeamercolor{alerted text}{fg=nudarkorange}
+% Enumerate item color 
+\setlist[enumerate]{label={\ifnum\@itemdepth=1\relax
+  \color{alerted text}\else
+  \color{wcprimary}\fi\theenumi.}}
 
-% Turn off shading for block title
+% Itemize item color (bullet)
+\setlist[itemize]{label=\color{wcprimary}\textbullet}
+
+% Change alerted text color to wcalerted (default is nudarkorange)
+\setbeamercolor{alerted text}{fg=wcalerted}
+
+% Turn off shading for block title when rounded=true (by default, rounded = false)
 \makeatletter
 \pgfdeclareverticalshading[lower.bg,upper.bg]{bmb@transition}{200cm}{%
   color(0pt)=(lower.bg); color(4pt)=(lower.bg); color(4pt)=(upper.bg)}
 
-% Change block background to a nupurple body bg to nupurple10
-\setbeamercolor{block title}{fg=white,bg=nupurple90}
-\setbeamercolor{block body}{parent=normal text,fg=black,bg=nupurple10}
+% Change block title background to wcprimary and body bg to wcprimary10
+\setbeamercolor{block title}{fg=white,bg=wcprimary}
+\setbeamercolor{block body}{parent=normal text,fg=black,bg=wcprimary10}
 
 % Change the alertblock title background to alerted text color
-\setbeamercolor{block title alerted}{fg=white,bg=nudarkorange}
-\setbeamercolor{block body alerted}{fg=black,bg=nubrightorange!20}
+\setbeamercolor{block title alerted}{fg=white,bg=wcalerted}
+\setbeamercolor{block body alerted}{fg=black,bg=wcalerted!10}
 
 % Change the exampleblock title background to greens
-\setbeamercolor{block title example}{fg=white,bg=nudarkgreen}
-\setbeamercolor{block body example}{fg=black,bg=nubrightgreen!20}
-
-% Change the itemize symbol to a circle
-\setbeamertemplate{itemize item}{\raisebox{0.2ex}{\tikz{\draw[nupurple,solid,fill=nupurple](0,0) circle (.4ex);}}}
+\setbeamercolor{block title example}{fg=white,bg=wcexample}
+\setbeamercolor{block body example}{fg=black,bg=wcexample!10}
 
 \mode
 <all>

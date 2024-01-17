@@ -1,21 +1,25 @@
 \mode<presentation>
 
+
 \setbeamertemplate{background}{
     \begin{tikzpicture}
     \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
     \ifnum\thepage=1\relax%
-    % Add background (nupurple)
-    \draw[color=nupurple,color=nupurple,line width=0.1pt] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    % Add background (wcprimary)
+    \draw[color=wcprimary,color=wcprimary,line width=0.1pt] (0,0) rectangle(\the\paperwidth,\the\paperheight);
     % Add facet polygons
-    \draw[color=nupurple,fill=nupurple, line width=0.05pt] (0,0) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- cycle;
-    \draw[color=nupurple110,fill=nupurple110,, line width=0.05pt] (0,\the\paperheight) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,\the\paperheight) -- cycle;
-    \draw[color=nupurple120,fill=nupurple120, line width=0.05pt] (6.4,\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- (7.7,0) -- (13.2,0.82*\the\paperheight) -- (12.8,\the\paperheight) -- cycle;
-    \draw[color=nupurple130,fill=nupurple130, line width=0.05pt] (7.7,0) -- (13.2,0.82*\the\paperheight) -- (11.6,0) -- cycle;
-    \draw[color=nupurple110,fill=nupurple110, line width=0.05pt] (11.6,0) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,0.18*\the\paperheight) -- (12,0) -- cycle;
-    \draw[color=nupurple,fill=nupurple, line width=0.05pt] (12,0) -- (\the\paperwidth,0.18*\the\paperheight) -- (\the\paperwidth,0) -- cycle;
-    \draw[color=nupurple,fill=nupurple,  line width=0.05pt] (12.8,\the\paperheight) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,\the\paperheight) -- cycle;
-    % Add the logo
-    \node[anchor=west,inner sep=0] at (0.05*\the\paperwidth,0.89*\the\paperheight) {\includegraphics[scale=0.25]{Northwestern_white.pdf}};
+    \draw[color=wcprimary,fill=wcprimary, line width=0.05pt] (0,0) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- cycle;
+    \draw[color=wcprimary110,fill=wcprimary110,, line width=0.05pt] (0,\the\paperheight) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,\the\paperheight) -- cycle;
+    \draw[color=wcprimary120,fill=wcprimary120, line width=0.05pt] (6.4,\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- (7.7,0) -- (13.2,0.82*\the\paperheight) -- (12.8,\the\paperheight) -- cycle;
+    \draw[color=wcprimary130,fill=wcprimary130, line width=0.05pt] (7.7,0) -- (13.2,0.82*\the\paperheight) -- (11.6,0) -- cycle;
+    \draw[color=wcprimary110,fill=wcprimary110, line width=0.05pt] (11.6,0) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,0.18*\the\paperheight) -- (12,0) -- cycle;
+    \draw[color=wcprimary,fill=wcprimary, line width=0.05pt] (12,0) -- (\the\paperwidth,0.18*\the\paperheight) -- (\the\paperwidth,0) -- cycle;
+    \draw[color=wcprimary,fill=wcprimary,  line width=0.05pt] (12.8,\the\paperheight) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,\the\paperheight) -- cycle;
+    % Add the logo if \titlegraphic is not blank
+    \ifx\inserttitlegraphic\@empty\relax
+    \else
+    \node[anchor=west,inner sep=0] at (0.05*\the\paperwidth,0.89*\the\paperheight) {\inserttitlegraphic};
+    \fi    
     \fi
     % Blank bg for every other page
     \ifnum\thepage>1\relax%
@@ -49,29 +53,150 @@
 % Section page
 % Automatically generate a new frame for each section
 \AtBeginSection[]{
-    {\setbeamertemplate{background}{
-        \begin{tikzpicture}
-            \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-            % Add background (nupurple)
-            \draw[color=nupurple,color=nupurple,line width=0.1pt] (0,0) rectangle(\the\paperwidth,\the\paperheight);
-            % Add facet polygons
-            \draw[color=nupurple10!30,fill=nupurple10!30, line width=0.05pt] (0,0) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- cycle;
-            \draw[color=nupurple20!30,fill=nupurple20!30, line width=0.05pt] (0,\the\paperheight) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,\the\paperheight) -- cycle;
-            \draw[color=nupurple30!30,fill=nupurple30!30, line width=0.05pt] (6.4,\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- (7.7,0) -- (13.2,0.82*\the\paperheight) -- (12.8,\the\paperheight) -- cycle;
-            \draw[color=nupurple40!30,fill=nupurple40!30, line width=0.05pt] (7.7,0) -- (13.2,0.82*\the\paperheight) -- (11.6,0) -- cycle;
-            \draw[color=nupurple20!30,fill=nupurple20!30, line width=0.05pt] (11.6,0) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,0.18*\the\paperheight) -- (12,0) -- cycle;
-            \draw[color=nupurple10!30,fill=nupurple10!30, line width=0.05pt] (12,0) -- (\the\paperwidth,0.18*\the\paperheight) -- (\the\paperwidth,0) -- cycle;
-            \draw[color=nupurple10!30,fill=nupurple10!30,  line width=0.05pt] (12.8,\the\paperheight) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,\the\paperheight) -- cycle;
-        \end{tikzpicture}
-    }
-    \setbeamertemplate{footline}{}
-    \begin{frame}
-        \vfill
-        \vskip4cm%
-        \begin{beamercolorbox}[sep=8pt,left,shadow=false,rounded=false]{title}
-            {\color{nupurple}\raggedright\usebeamerfont{section}\insertsectionhead\par}%
-        \end{beamercolorbox}
-    \end{frame}
+  {\setbeamertemplate{background}{
+    \begin{tikzpicture}
+      \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+      % Add background (wcprimary)
+      \draw[color=wcprimary,color=wcprimary,line width=0.1pt] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+      % Add facet polygons
+      \draw[color=wcprimary10!30,fill=wcprimary10!30, line width=0.05pt] (0,0) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- cycle;
+      \draw[color=wcprimary20!30,fill=wcprimary20!30, line width=0.05pt] (0,\the\paperheight) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,\the\paperheight) -- cycle;
+      \draw[color=wcprimary30!30,fill=wcprimary30!30, line width=0.05pt] (6.4,\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- (7.7,0) -- (13.2,0.82*\the\paperheight) -- (12.8,\the\paperheight) -- cycle;
+      \draw[color=wcprimary40!30,fill=wcprimary40!30, line width=0.05pt] (7.7,0) -- (13.2,0.82*\the\paperheight) -- (11.6,0) -- cycle;
+      \draw[color=wcprimary20!30,fill=wcprimary20!30, line width=0.05pt] (11.6,0) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,0.18*\the\paperheight) -- (12,0) -- cycle;
+      \draw[color=wcprimary10!30,fill=wcprimary10!30, line width=0.05pt] (12,0) -- (\the\paperwidth,0.18*\the\paperheight) -- (\the\paperwidth,0) -- cycle;
+      \draw[color=wcprimary10!30,fill=wcprimary10!30,  line width=0.05pt] (12.8,\the\paperheight) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,\the\paperheight) -- cycle;
+    \end{tikzpicture}
+  }
+  \setbeamertemplate{footline}{}
+  \begin{frame}
+    \vfill
+    \vskip4cm%
+    \begin{beamercolorbox}[sep=8pt,left,shadow=false,rounded=false]{title}
+      {\color{wcprimary}\raggedright\usebeamerfont{section}\insertsectionhead\par}%
+    \end{beamercolorbox}
+  \end{frame}
+  }
+}
+
+% Special blocks using tcolorbox
+% If you want the facet design to come through faintly in the interior, replace the fill
+% color of the overlay to \fill[white, fill opacity=0.8]
+\newtcolorbox{tblock}[1]{
+  enhanced,
+  underlay={
+    \begin{tcbclipframe}
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \draw[color=wcprimary,fill=wcprimary, line width=0.05pt] (0,0) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- cycle;
+        \draw[color=wcprimary110,fill=wcprimary110,, line width=0.05pt] (0,\the\paperheight) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,\the\paperheight) -- cycle;
+        \draw[color=wcprimary120,fill=wcprimary120, line width=0.05pt] (6.4,\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- (7.7,0) -- (13.2,0.82*\the\paperheight) -- (12.8,\the\paperheight) -- cycle;
+        \draw[color=wcprimary130,fill=wcprimary130, line width=0.05pt] (7.7,0) -- (13.2,0.82*\the\paperheight) -- (11.6,0) -- cycle;
+        \draw[color=wcprimary110,fill=wcprimary110, line width=0.05pt] (11.6,0) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,0.18*\the\paperheight) -- (12,0) -- cycle;
+        \draw[color=wcprimary,fill=wcprimary, line width=0.05pt] (12,0) -- (\the\paperwidth,0.18*\the\paperheight) -- (\the\paperwidth,0) -- cycle;
+        \draw[color=wcprimary,fill=wcprimary,  line width=0.05pt] (12.8,\the\paperheight) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,\the\paperheight) -- cycle;    
+    \end{tcbclipframe}
+  },
+  overlay={
+    \begin{tcbclipinterior}
+      \fill[wcprimary10] (frame.south west) rectangle (frame.north east);
+    \end{tcbclipinterior}
+  },
+  title=#1
+}
+
+\newtcolorbox{talert}[1]{
+  enhanced,
+  underlay={
+    \begin{tcbclipframe}
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \draw[color=wcalerted,fill=wcalerted, line width=0.05pt] (0,0) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- cycle;
+        \draw[color=wcalerted!110,fill=wcalerted!110,, line width=0.05pt] (0,\the\paperheight) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,\the\paperheight) -- cycle;
+        \draw[color=wcalerted!120,fill=wcalerted!120, line width=0.05pt] (6.4,\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- (7.7,0) -- (13.2,0.82*\the\paperheight) -- (12.8,\the\paperheight) -- cycle;
+        \draw[color=wcalerted!130,fill=wcalerted!130, line width=0.05pt] (7.7,0) -- (13.2,0.82*\the\paperheight) -- (11.6,0) -- cycle;
+        \draw[color=wcalerted!110,fill=wcalerted!110, line width=0.05pt] (11.6,0) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,0.18*\the\paperheight) -- (12,0) -- cycle;
+        \draw[color=wcalerted,fill=wcalerted, line width=0.05pt] (12,0) -- (\the\paperwidth,0.18*\the\paperheight) -- (\the\paperwidth,0) -- cycle;
+        \draw[color=wcalerted,fill=wcalerted,  line width=0.05pt] (12.8,\the\paperheight) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,\the\paperheight) -- cycle;    
+    \end{tcbclipframe}
+  },
+  overlay={
+    \begin{tcbclipinterior}
+      \fill[wcalerted!10] (frame.south west) rectangle (frame.north east);
+    \end{tcbclipinterior}
+  },
+  title=#1
+}
+
+\newtcolorbox{texample}[1]{
+  enhanced,
+  underlay={
+    \begin{tcbclipframe}
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \draw[color=wcexample,fill=wcexample, line width=0.05pt] (0,0) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- cycle;
+        \draw[color=wcexample!110,fill=wcexample!110,, line width=0.05pt] (0,\the\paperheight) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,\the\paperheight) -- cycle;
+        \draw[color=wcexample!120,fill=wcexample!120, line width=0.05pt] (6.4,\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- (7.7,0) -- (13.2,0.82*\the\paperheight) -- (12.8,\the\paperheight) -- cycle;
+        \draw[color=wcexample!130,fill=wcexample!130, line width=0.05pt] (7.7,0) -- (13.2,0.82*\the\paperheight) -- (11.6,0) -- cycle;
+        \draw[color=wcexample!110,fill=wcexample!110, line width=0.05pt] (11.6,0) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,0.18*\the\paperheight) -- (12,0) -- cycle;
+        \draw[color=wcexample,fill=wcexample, line width=0.05pt] (12,0) -- (\the\paperwidth,0.18*\the\paperheight) -- (\the\paperwidth,0) -- cycle;
+        \draw[color=wcexample,fill=wcexample,  line width=0.05pt] (12.8,\the\paperheight) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,\the\paperheight) -- cycle;    
+    \end{tcbclipframe}
+  },
+  overlay={
+    \begin{tcbclipinterior}
+      \fill[wcexample!10] (frame.south west) rectangle (frame.north east);
+    \end{tcbclipinterior}
+  },
+  title=#1
+}
+
+% And a general facet block which takes a second (optional) argument for the color
+\newtcolorbox{tfacetbox}[2][wcprimary]{
+  enhanced,
+  underlay={
+    \begin{tcbclipframe}
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \draw[color=#1,fill=#1, line width=0.05pt] (0,0) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- cycle;
+        \draw[color=#1!110,fill=#1!110, line width=0.05pt] (0,\the\paperheight) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,\the\paperheight) -- cycle;
+        \draw[color=#1!120,fill=#1!120, line width=0.05pt] (6.4,\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- (7.7,0) -- (13.2,0.82*\the\paperheight) -- (12.8,\the\paperheight) -- cycle;
+        \draw[color=#1!130,fill=#1!130, line width=0.05pt] (7.7,0) -- (13.2,0.82*\the\paperheight) -- (11.6,0) -- cycle;
+        \draw[color=#1!110,fill=#1!110, line width=0.05pt] (11.6,0) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,0.18*\the\paperheight) -- (12,0) -- cycle;
+        \draw[color=#1,fill=#1, line width=0.05pt] (12,0) -- (\the\paperwidth,0.18*\the\paperheight) -- (\the\paperwidth,0) -- cycle;
+        \draw[color=#1,fill=#1, line width=0.05pt] (12.8,\the\paperheight) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,\the\paperheight) -- cycle;    
+    \end{tcbclipframe}
+  },
+  overlay={
+    \begin{tcbclipinterior}
+      \fill[#1!10] (frame.south west) rectangle (frame.north east);
+    \end{tcbclipinterior}
+  },
+  title=#2
+}
+
+% Create a standout frame for important points. It should be blank, with the body text centered
+% vertically and horizontally. There should be no title
+\newcommand{\standout}[1]{
+    {
+        \setbeamertemplate{background}{
+            \begin{tikzpicture}
+              \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+                % Add background (wcprimary)
+                \draw[color=wcprimary,color=wcprimary,line width=0.1pt] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+                % Add facet polygons
+                \draw[color=wcprimary,fill=wcprimary, line width=0.05pt] (0,0) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- cycle;
+                \draw[color=wcprimary110,fill=wcprimary110, line width=0.05pt] (0,\the\paperheight) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,\the\paperheight) -- cycle;
+                \draw[color=wcprimary120,fill=wcprimary120, line width=0.05pt] (6.4,\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- (7.7,0) -- (13.2,0.82*\the\paperheight) -- (12.8,\the\paperheight) -- cycle;
+                \draw[color=wcprimary130,fill=wcprimary130, line width=0.05pt] (7.7,0) -- (13.2,0.82*\the\paperheight) -- (11.6,0) -- cycle;
+                \draw[color=wcprimary110,fill=wcprimary110, line width=0.05pt] (11.6,0) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,0.18*\the\paperheight) -- (12,0) -- cycle;
+                \draw[color=wcprimary,fill=wcprimary, line width=0.05pt] (12,0) -- (\the\paperwidth,0.18*\the\paperheight) -- (\the\paperwidth,0) -- cycle;
+                \draw[color=wcprimary,fill=wcprimary,  line width=0.05pt] (12.8,\the\paperheight) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,\the\paperheight) -- cycle;
+            \end{tikzpicture}
+        }
+        \setbeamertemplate{footline}{}
+        \begin{frame}
+            \vfill
+            \begin{beamercolorbox}[sep=8pt,center,shadow=false,rounded=false]{title}
+                {\color{wcprimary10}\usebeamerfont{section}#1\par}
+            \end{beamercolorbox}
+        \end{frame}
     }
 }
 
