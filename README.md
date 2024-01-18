@@ -15,6 +15,5 @@ I highly doubt this is stable. This is still a work in progress. So, if you come
 
 ## Coming Soon
 Here are my plans for what I want to add:
-- More interesting block environments (adding facet design and a border to the block title and body)
 - More color themes (light version, plus other pallettes entirely)
-- Ability to easily change (or remove) the logo from preamble
+- More font options (Overleaf, noral system fonts) so people can make it work out of the box
