@@ -17,14 +17,15 @@
     \draw[color=wcprimary,fill=wcprimary,  line width=0.05pt] (12.8,\the\paperheight) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,\the\paperheight) -- cycle;
     % Add the logo if \titlegraphic is not blank
     \ifx\inserttitlegraphic\@empty\relax
-    \else
-    \node[anchor=west,inner sep=0] at (0.05*\the\paperwidth,0.89*\the\paperheight) {\inserttitlegraphic};
-    \fi    
+      \else
+      \node[anchor=west,inner sep=0] at (0.05*\the\paperwidth,0.89*\the\paperheight) {\inserttitlegraphic};
+      \fi    
     \fi
     % Blank bg for every other page
     \ifnum\thepage>1\relax%
-    \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
-    \fi
+    % get beamer background canvas color
+    \usebeamercolor{background canvas}
+    \fill[bg,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);    \fi
   \end{tikzpicture}
 }
 

@@ -1,0 +1,14 @@
+\frametitle{Modifying Main Colors (II)}
+    For example, to modify the main color to be a shade of blue, you could use the following code in your preamble (after loading the theme):
+    \begin{verbatim}
+        \definecolor{wcprimary}{RGB}{0,53,107}
+        \definecolor{wcprimary140}{RGB}{0, 34, 70}
+        \definecolor{wcprimary130}{RGB}{0, 40, 80}
+        \definecolor{wcprimary120}{RGB}{0, 45, 91}
+        \definecolor{wcprimary110}{RGB}{0, 50, 102}
+        \definecolor{wcprimary40}{RGB}{153, 174, 196}
+        \definecolor{wcprimary30}{RGB}{179, 194, 211}
+        \definecolor{wcprimary20}{RGB}{204, 215, 225}
+        \definecolor{wcprimary10}{RGB}{230, 235, 240}
+    \end{verbatim}
+    This sets the main color to Yale Blue, and all the shades used in the facet pattern. The preambles of the example slides in this document show how to modify the colors.
