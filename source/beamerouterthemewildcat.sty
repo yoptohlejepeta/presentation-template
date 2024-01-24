@@ -6,14 +6,7 @@
   \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
   \begin{tikzpicture}
   \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-  \draw[color=wcprimary,fill=wcprimary, line width=0.05pt] (0,0) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- cycle;
-  \draw[color=wcprimary110,fill=wcprimary110,, line width=0.05pt] (0,\the\paperheight) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,\the\paperheight) -- cycle;
-  \draw[color=wcprimary120,fill=wcprimary120, line width=0.05pt] (6.4,\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- (7.7,0) -- (13.2,0.82*\the\paperheight) -- (12.8,\the\paperheight) -- cycle;
-  \draw[color=wcprimary130,fill=wcprimary130, line width=0.05pt] (7.7,0) -- (13.2,0.82*\the\paperheight) -- (11.6,0) -- cycle;
-  \draw[color=wcprimary110,fill=wcprimary110, line width=0.05pt] (11.6,0) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,0.18*\the\paperheight) -- (12,0) -- cycle;
-  \draw[color=wcprimary,fill=wcprimary, line width=0.05pt] (12,0) -- (\the\paperwidth,0.18*\the\paperheight) -- (\the\paperwidth,0) -- cycle;
-  \draw[color=wcprimary,fill=wcprimary,  line width=0.05pt] (12.8,\the\paperheight) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,\the\paperheight) -- cycle;
-\ifx\insertframesubtitle\@empty%
+  \ifx\insertframesubtitle\@empty%
       {\node[anchor=west, white,font=\Large] at (0.05*\the\paperwidth,0.61){\raggedright\insertframetitle};}
   \else%
       {\node[anchor= west, white,font=\large] at (0.05*\the\paperwidth,0.81){\raggedright\insertframetitle};%
