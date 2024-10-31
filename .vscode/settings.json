@@ -1,7 +1,7 @@
 {
     "latex-workshop.latex.recipes": [
         {
-            "name": "xelatex",
+            "name": "latexmk (xelatex)",
             "tools": ["xelatex"]
         }
     ],

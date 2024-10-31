@@ -143,7 +143,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 plt.style.use('ggplot')
-# Crete colors
+# Create colors
 wcprimary = (78/255,42/255,132/255)
 df = pd.read_stata("source/graphs/auto.dta")
 plt.scatter(df["weight"], df["mpg"], color=wcprimary)
@@ -203,12 +203,13 @@ ggsave("source/graphs/plot-R.pdf", plot, width = 8, height = 5)
 \begin{frame}[fragile]
     \frametitle{Using Colors in Graphs}
     \begin{tblock}{Stata Code}
+        \footnotesize
         \begin{verbatim}
 *ssc install schemepack, replace
 sysuse auto, clear
 local wcprimary "78 42 132"
 
-twoway 	(scatter mpg weight, mcolor("`wcprimary'")), ///
+twoway (scatter mpg weight, mcolor("`wcprimary'")), ///
         scheme(gg_tableau)
         
 graph export "plot-stata.pdf", replace
@@ -269,7 +270,7 @@ graph export "plot-stata.pdf", replace
 \begin{frame}{Font Style: Default}
     The theme uses the official Northwestern fonts, which are Campton (for titles) and Akkurat Pro (for copy). These are not free fonts, so you will need to purchase (and install) them if you want to use them.
     \\ ~ \\
-    The most likely issue you will have after installing  the fonts will be the name of the font. Different distributions of Akkurat Pro name it slightly differently. In \texttt{beamerfontthemewildcat.sty}, you can change the name of the font to match your installation. For example, my distribution names the light version Akkurat Light Pro, but yours may use Akkurat Pro Light. The easiest way to check is to open a Word document (or similar), find the fomt, and see exactly how it is named.
+    The wildcat theme uses the OTF files directly, so as long as you have the OTFs in a similar relative directory as the demo files, it should work (this includes on Overleaf). If you have installed them, you can look at the \texttt{\textbackslash beamerfontthemewildcat-installed.sty} file to see how to use the installed fonts.
     \\ ~ \\
     Note: You need to us XeLaTeX or LuaLaTeX to compile in order to use custom fonts. If you use PDFLaTeX, you will get an error.
 \end{frame}
@@ -283,14 +284,15 @@ graph export "plot-stata.pdf", replace
     An alternative is to upload the OTF or TTF files to your Overleaf directory, and then change the \texttt{beamerfontthemewildcat.sty} files to specify those font files rather than the font family generally. Alternatively, simply add the lines of code directly to your preamble \textit{after} loading the theme:
     \footnotesize
     \begin{verbatim}
-% Change title font to Campton Light
-\setbeamerfont{title}{family=\fontspec{Campton-Medium.otf}, size=\LARGE}
-\setbeamerfont{author}{family=\fontspec{Campton-Light.otf}, size=\small}
-\setbeamerfont{frametitle}{family=\fontspec{Campton-Medium.otf}, size=\Large}
-\setbeamerfont{section}{family=\fontspec{Campton-Light.otf}, size=\LARGE}
+% Create new font families from OTF fonts
+\newfontfamily\CamptonMedium[Path=fonts/Campton/, Extension=.otf]{Campton Medium}
+\newfontfamily\CamptonLight[Path=fonts/Campton/, Extension=.otf]{Campton Light}
 
-% Set sans font
-\setsansfont[BoldFont={Akkurat-Pro.otf}]{Akkurat-Light-Pro.otf}
+% Change title font to Campton
+\setbeamerfont{title}{family=\CamptonMedium, size=\LARGE}
+\setbeamerfont{author}{family=\CamptonLight, size=\small}
+\setbeamerfont{frametitle}{family=\CamptonMedium, size=\Large}
+\setbeamerfont{section}{family=\CamptonLight, size=\LARGE}
     \end{verbatim}
 \end{frame}
 

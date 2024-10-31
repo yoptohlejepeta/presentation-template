@@ -1,3 +1,13 @@
+% This file defines the inner theme "wildcat" for the beamer class.
+% It contains commands and templates for customizing the background, title page, section pages, and special blocks.
+% The main pattern for the background is defined in the \bgpattern command, which is used in various templates and environments.
+% The \bgpatternlight command creates a lighter version of the background pattern for section pages.
+% The \bgpatternblock command creates a color-specific version of the background pattern for tblocks.
+% The background template is set using the \setbeamertemplate{background} command, which includes the main pattern and optional logo.
+% The title page template is defined using the \defbeamertemplate*{title page}{wildcat} command, which positions the title, author, and date.
+% Section pages are generated using the \AtBeginSection[] command, which sets the background template and displays the section name.
+% Special blocks for alerts, examples, and facets are defined using the \newtcolorbox command, which sets the background pattern and color.
+% The \standout command creates a standout frame with a blank background and centered text.
 \mode<presentation>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -46,23 +56,21 @@
 \setbeamertemplate{background}{
     \begin{tikzpicture}
     \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-    % Add main pattern, defined above
-    \bgpattern
-    % Add the logo if \titlegraphic is not blank and page = 1
-    \ifx\inserttitlegraphic\@empty\relax
-    \else
-      \ifnum\thepage=1
-      \node[anchor=west,inner sep=0] at (0.05*\the\paperwidth,0.89*\the\paperheight) {\inserttitlegraphic};
+    % Add main pattern only on the cover page
+    \ifnum\thepage=1
+      \bgpattern
+      % Add the logo if \titlegraphic is not blank
+      \ifx\inserttitlegraphic\@empty\relax
+      \else
+        \node[anchor=west,inner sep=0] at (0.05*\the\paperwidth,0.89*\the\paperheight) {\inserttitlegraphic};
       \fi
-    \fi    
-    % Blank bg for every other page: Draw white box over everything except the title bar
-    \ifnum\thepage>1\relax%
-    % get beamer background canvas color
-    \usebeamercolor{background canvas}
-    \fill[bg,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight-1.2cm);    \fi
+    \else
+      % Plain white background for every other page
+      \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \fi
     % If the frame specifies [plain] as an option, draw a full white background
     \ifbeamer@plainframe
-    \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+      \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
     \fi
   \end{tikzpicture}
 }
@@ -72,9 +80,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \defbeamertemplate*{title page}{wildcat}[1][]
 { 
-% Clear the footline template
+% Clear the headline/footline template
+\setbeamertemplate{headline}{} 
 \setbeamertemplate{footline}{}
-\setbeamertemplate{navigation symbols}{}    
+\setbeamertemplate{navigation symbols}{}   
 \vfill
 \vskip4cm%
     \begin{beamercolorbox}[wd=12cm,leftskip=0cm,sep=8pt,#1]{title page header}
@@ -101,7 +110,8 @@
       \bgpatternlight
     \end{tikzpicture}
   }
-  \setbeamertemplate{footline}{}
+  \setbeamertemplate{headline}{} % Remove header
+  \setbeamertemplate{footline}{} % Remove footer
   \begin{frame}
     \vfill
     \vskip4cm%
