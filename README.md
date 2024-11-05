@@ -7,6 +7,8 @@ This beamer theme uses branding guidelines (colors, fonts, and logos) from [Nort
 ## How do I use this?
 You will simply need to have all the .sty files and fonts folder in the source folder in your LaTeX file's working directory. Then add `\usetheme{wildcat}` to your preamble. See source/wildcat-example.tex for an example document. If you do not have the rights to the fonts in the fonts folder, you can add `\usefonttheme{wildcat-overleaf}` to use fonts common to Windows/MacOS systems and available using Overleaf.
 
+Users on Overleaf can also use the [Overleaf template](https://www.overleaf.com/latex/templates/wildcat/knynymwgrxxj) to quickly start a new wilcat-themed beamer project.
+
 ## Can I customize it?
 Yes! The theme is designed to be (hopefully) easy to customize with your own colors, fonts, and even background patterns. The file source/wildcat-demo.pdf provides numerous examples of how to change the these your liking. I also tried as best I could to add informative comments at every step in the .sty files.   
 
