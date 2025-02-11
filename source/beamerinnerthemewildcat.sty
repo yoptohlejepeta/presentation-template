@@ -17,15 +17,50 @@
 % If you want to change the background pattern, this is the place to do it.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Main pattern: Used in title page and standout frames, plus tblocks
-\newcommand{\bgpattern}{
-  \draw[color=wcprimary,fill=wcprimary, line width=0.05pt] (0,0) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- cycle;
-  \draw[color=wcprimary110,fill=wcprimary110,, line width=0.05pt] (0,\the\paperheight) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,\the\paperheight) -- cycle;
-  \draw[color=wcprimary120,fill=wcprimary120, line width=0.05pt] (6.4,\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- (7.7,0) -- (13.2,0.82*\the\paperheight) -- (12.8,\the\paperheight) -- cycle;
-  \draw[color=wcprimary130,fill=wcprimary130, line width=0.05pt] (7.7,0) -- (13.2,0.82*\the\paperheight) -- (11.6,0) -- cycle;
-  \draw[color=wcprimary110,fill=wcprimary110, line width=0.05pt] (11.6,0) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,0.18*\the\paperheight) -- (12,0) -- cycle;
-  \draw[color=wcprimary,fill=wcprimary, line width=0.05pt] (12,0) -- (\the\paperwidth,0.18*\the\paperheight) -- (\the\paperwidth,0) -- cycle;
-  \draw[color=wcprimary,fill=wcprimary,  line width=0.05pt] (12.8,\the\paperheight) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,\the\paperheight) -- cycle;
+\newcommand{\drawHex}[1]{
+    \path[drop shadow={opacity=0.05,shadow scale=1.02,fill=black},
+            fill=wcprimary, fill opacity=1, draw=wcprimary!93, draw opacity=1]
+            \foreach \coord in {#1} {
+                (\coord-0) -- (\coord-1) -- (\coord-2) -- (\coord-3) -- (\coord-4) -- (\coord-5) -- cycle
+            } -- cycle;
 }
+\newcommand{\bgpattern}{
+  % \draw[color=wcprimary,fill=wcprimary, line width=0.05pt] (0,0) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- cycle;
+  % \draw[color=wcprimary110,fill=wcprimary110,, line width=0.05pt] (0,\the\paperheight) -- (0,0.9*\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,\the\paperheight) -- cycle;
+  % \draw[color=wcprimary120,fill=wcprimary120, line width=0.05pt] (6.4,\the\paperheight) -- (4.4,0.75*\the\paperheight) -- (6.4,0) -- (7.7,0) -- (13.2,0.82*\the\paperheight) -- (12.8,\the\paperheight) -- cycle;
+  % \draw[color=wcprimary130,fill=wcprimary130, line width=0.05pt] (7.7,0) -- (13.2,0.82*\the\paperheight) -- (11.6,0) -- cycle;
+  % \draw[color=wcprimary110,fill=wcprimary110, line width=0.05pt] (11.6,0) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,0.18*\the\paperheight) -- (12,0) -- cycle;
+  % \draw[color=wcprimary,fill=wcprimary, line width=0.05pt] (12,0) -- (\the\paperwidth,0.18*\the\paperheight) -- (\the\paperwidth,0) -- cycle;
+  % \draw[color=wcprimary,fill=wcprimary,  line width=0.05pt] (12.8,\the\paperheight) -- (13.2,0.82*\the\paperheight) -- (\the\paperwidth,0.55*\the\paperheight) -- (\the\paperwidth,\the\paperheight) -- cycle;
+  x=0.1*\the\paperheight,
+        y=0.1*\the\paperheight,
+        square/.style={draw,fill,minimum size=1.5pt,inner sep=0pt},
+        dot/.style={circle,circle,fill,minimum size=2pt,inner sep=0pt}
+        ]
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \fill[fill=wcprimary] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        % draw hexagonal grid
+        \foreach \x in {0,...,12} {
+            \coordinate(X) at (0:1.5*\x);
+            \ifodd\x
+                \def\ymax{9}
+                \coordinate(X) at ($(X)+(0:0.5)+(-120:1)$);
+            \else
+                \def\ymax{8}
+            \fi
+            \foreach \y in {0,...,\ymax} {
+                \coordinate (\x-\y) at ($(X)+(60:\y)+(120:\y)$);
+                \draw[wcprimary!90,opacity=0.225] (\x-\y) +(-60:1)
+                \foreach \z [remember=\z as \lastz (initially 5)] in {0,...,5} {
+                    -- coordinate(\x-\y-\lastz-m) +(\z*60:1) coordinate(\x-\y-\z)
+                } -- cycle;
+            } 
+        }
+        % Draw raised hexagons (move these around if you want to vary the pattern)
+        \drawHex{8-5,8-4,7-5}
+        \drawHex{9-3,9-2,8-1,9-1,10-2,10-1}
+        \drawHex{1-2,2-2,2-1,2-0,3-1}
+  }
 
 % Make a light version for section pages
 \newcommand{\bgpatternlight}{
